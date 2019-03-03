@@ -23,29 +23,36 @@ const logMsg = (msg) => {
     server.broadCastMsg(msg);
 };
 
-// Train a simple model:
-const model = tf.sequential();
-model.add(tf.layers.dense({units: 100, activation: 'relu', inputShape: [10]}));
-model.add(tf.layers.dense({units: 1, activation: 'linear'}));
-model.compile({optimizer: 'sgd', loss: 'meanSquaredError'});
-
-const xs = tf.randomNormal([100, 10]);
-const ys = tf.randomNormal([100, 1]);
-
-const epochs = 200;
-model.fit(xs, ys, {
-  epochs: epochs,
-  verbose: 0,
-  callbacks: {
-    onEpochEnd: (epoch, log) => {
-      if (epoch % 10 === 0)
-        logData(`Epoch ${epoch}/${epochs}: loss = ${log.loss}`);
-    },
-    onTrainBegin: () => {
-      logMsg({ msg: 'Training started '});
-    },
-    onTrainEnd: () => {
-      logMsg({ msg: 'Training completed'});
+const startTraining = () => {
+  // Train a simple model:
+  const model = tf.sequential();
+  model.add(tf.layers.dense({units: 100, activation: 'relu', inputShape: [10]}));
+  model.add(tf.layers.dense({units: 1, activation: 'linear'}));
+  model.compile({optimizer: 'sgd', loss: 'meanSquaredError'});
+  
+  const xs = tf.randomNormal([100, 10]);
+  const ys = tf.randomNormal([100, 1]);
+  
+  const epochs = 500;
+  model.fit(xs, ys, {
+    epochs: epochs,
+    verbose: 0,
+    callbacks: {
+      onEpochEnd: (epoch, log) => {
+        if (epoch % 10 === 0)
+          logData(`Epoch ${epoch}/${epochs}: loss = ${log.loss}`);
+      },
+      onTrainBegin: () => {
+        logMsg({msg: 'Training started '});
+      },
+      onTrainEnd: () => {
+        logMsg({msg: 'Training completed'});
+      }
     }
-  }
-});
+  });
+};
+
+if (commandLineMode)
+  startTraining();
+else
+  exports.start = startTraining;

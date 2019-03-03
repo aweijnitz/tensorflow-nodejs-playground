@@ -7,6 +7,7 @@ socket.on('msg', function(msg) {
 });
 
 socket.on('data', function(msg){
-  $('#messages').prepend($('<div>').text(JSON.stringify(msg)));
+  let msgEl = $('<div>').text(JSON.stringify(msg)).hide();
+  $('#data').prepend(msgEl.fadeIn(300));
 });
 
