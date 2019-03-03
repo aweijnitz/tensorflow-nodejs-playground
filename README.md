@@ -47,3 +47,5 @@ Error: dlopen(FULL_PATH_TO_FOLDER_HERE/tensorflow-nodejs-playground/node_modules
     at Environment.registerBackend (/Users/anders/WebstormProjects/tensorflow-nodejs-playground/node_modules/@tensorflow/tfjs-core/dist/environment.js:234:27)
     at Object.<anonymous> (/Users/anders/WebstormProjects/tensorflow-nodejs-playground/node_modules/@tensorflow/tfjs-node-gpu/dist/index.js:45:8)
 ```
+
+![Screenshot of basic example](notes/assets/basic-example-screenshot.png | width=640)
