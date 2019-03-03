@@ -1,0 +1,30 @@
+body {
+    padding: 2em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: medium;
+    background-color: #778899;
+    color: #323b46;
+}
+
+h1 {
+    font-size: x-large;
+    color: #21252d;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.serverdata {
+    font-size: medium;
+    font-weight: 300;
+    background-color: #a5b9ca;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    box-shadow: 0.05em 0.05em #606970;
+}
+
+.data-bold {
+    font-size: larger;
+    font-weight: 600;
+}
