@@ -48,4 +48,4 @@ Error: dlopen(FULL_PATH_TO_FOLDER_HERE/tensorflow-nodejs-playground/node_modules
     at Object.<anonymous> (/Users/anders/WebstormProjects/tensorflow-nodejs-playground/node_modules/@tensorflow/tfjs-node-gpu/dist/index.js:45:8)
 ```
 
-![Screenshot of basic example](notes/assets/basic-example-screenshot.png | width=640)
+![Screenshot of basic example](notes/assets/basic-example-screenshot.png?s=640)
