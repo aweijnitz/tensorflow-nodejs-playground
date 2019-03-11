@@ -1,4 +1,89 @@
 # Project Notes
 
-Will go here
 
+## Classifiers and Terminology
+
+__Predicting one out a given number of options__
+
+Ex. Map the input to one of ```{ 'apple', 'orange', 'pear'}```
+
+Use ```softmax``` for this. (Bolzman distribution, where the output vector is a set of probabilities, summing up to one)
+.
+
+__Dividing up the problem__
+
+Want to analyze many features (eg. “contains glass” and “is image blurry”)? Setup more models for each of the feature. Don’t mix it up all in one.
+
+__Support Vector Machine (SVG)__
+
+Support Vector Machines. An algorithm that works by creating linear decision boundaries to classify multiple classes.
+SVM being a supervised learning algorithm requires clean, annotated data.
+
+
+
+
+## Data Preparation
+
+### Image Prep
+
+#### Base
+- Uniform Aspect Ratio
+- Uniform scale/size/shape ```(128x128xR[0-255]xG[0-255]xB[0-255])```
+
+
+#### Better/Refined
+- Calculate the mean image
+- Normalize image
+    - Subtracting the mean from each pixel
+    - dividing the result by the standard deviation.
+    
+- Normalize values to be in range [0,1]
+- Reduce dimensionality (collapse RGB -> Greyscale)
+- Data augmentation
+    - (optional) Generate additional training data by adding new images to the set, which are slightly rotated, scaled, or mirrored versions of the data (if this makes sense in the context) 
+    - Extract features using OpenCV and use those as well in training and prediction (just add to the input vector)
+    
+    
+### Using OpenCV to do basic feature extraction and prep
+
+Feature like normalized histogram converting to greyscaleing.
+
+See [this article](https://medium.com/@dataturks/understanding-svms-for-image-classification-cf4f01232700) 
+and [Node.js meets OpenCV’s Deep Neural Networks — Fun with Tensorflow and Caffe](https://medium.com/@muehler.v/node-js-meets-opencvs-deep-neural-networks-fun-with-tensorflow-and-caffe-ff8d52a0f072)
+
+#### Mixed Links (tutorials, tips, examples)
+- [Image Data Pre-Processing for Neural Networks](https://becominghuman.ai/image-data-pre-processing-for-neural-networks-498289068258)
+- [How to Prepare a Photo Caption Dataset for Training a Deep Learning Model](https://machinelearningmastery.com/prepare-photo-caption-dataset-training-deep-learning-model/)
+- [SVG, Feature extraction using OpenCV](https://medium.com/@dataturks/understanding-svms-for-image-classification-cf4f01232700)
+- [GitHub: opencv4nodejs](https://github.com/justadudewhohacks/opencv4nodejs)
+- [Highlevel ML Toolkit - ML5 ](https://ml5js.org/)
+- [Style Transfer Demo With Magenta.js](https://style-transfer.glitch.me/)
+- [Magenta.js](https://magenta.tensorflow.org/get-started/#magenta-js)
+
+#### Generative Adverserial Neworks (GAN:s)
+
+- [pix2pix - Filling in the gaps](https://affinelayer.com/pixsrv/)
+- The original pix2pix paper [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/abs/1611.07004)
+- [Learning To See video](https://vimeo.com/260612034)
+
+
+__Stanford Lecture 13 on Generative Algorithms__
+
+- [PixelRNN and PixelCNN](https://youtu.be/5WoItGTWV54?t=665)
+- [Variational Autoencoders](https://youtu.be/5WoItGTWV54?t=1181)
+- [Generative Adverserial Networks (GAN)](https://youtu.be/5WoItGTWV54?t=3081)
+- [The GAN Zoo](https://youtu.be/5WoItGTWV54?t=4411)
+- [GAN pro/contras](https://youtu.be/5WoItGTWV54?t=4460)
+- []()
+
+
+#### Reinforcement Learning (AI learns how to play a game for example)
+
+- [Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/)
+- [Paper - Learning to Play Pong using Policy Gradient Learning](https://arxiv.org/abs/1807.08452)
+- []()
+- []()
+
+https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
