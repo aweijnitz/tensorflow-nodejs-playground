@@ -5,6 +5,10 @@
   "scripts": {
     "start": "nodemon ./bin/www"
   },
+  "engines": {
+    "node": ">=11.4.0",
+    "npm": ">=6.4.0"
+  },
   "dependencies": {
     "@tensorflow/tfjs-node": "^0.3.1",
     "@tensorflow/tfjs-node-gpu": "^0.3.1",
