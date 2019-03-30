@@ -20,7 +20,15 @@ Support Vector Machines. An algorithm that works by creating linear decision bou
 SVM being a supervised learning algorithm requires clean, annotated data.
 
 
+## Tensorflow links
 
+- [Blogpost: Overview/Announcement Tensorflow 2.0](https://hackernoon.com/tensorflow-is-dead-long-live-tensorflow-49d3e975cf04)
+
+
+## Ludwig - Deep Learning Toolbox for experimentation
+
+- [Introducing Ludwig](https://eng.uber.com/introducing-ludwig/)
+- [Ludwig Home](https://uber.github.io/ludwig/)
 
 ## Data Preparation
 
@@ -82,8 +90,21 @@ __Stanford Lecture 13 on Generative Algorithms__
 - [Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/)
 - [Paper - Learning to Play Pong using Policy Gradient Learning](https://arxiv.org/abs/1807.08452)
 - []()
-- []()
 
 https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+
+
+### Natural Language Generation
+
+
+- [Wikipeida About NLG](https://en.wikipedia.org/wiki/Natural-language_generation)
+- [Blog: How do I Build an NLG System: Tools?](https://ehudreiter.com/2017/01/26/nlg-system-tools/)
+
+### word2vec - Text similarity
+
+- [Blogpost: How to get started with word2vec](https://medium.freecodecamp.org/how-to-get-started-with-word2vec-and-then-how-to-make-it-work-d0a2fca9dad3)
+- [Most popular word2vec lib: __Gensim__](https://github.com/RaRe-Technologies/gensim/blob/develop/docs/notebooks/gensim%20Quick%20Start.ipynb)
+- [Presentation: Finding similar Github Projects](https://www.slideshare.net/vote/finding-similar-projects-in-github-using-word2vec-and-wmd)
+- []()

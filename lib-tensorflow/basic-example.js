@@ -2,7 +2,7 @@
 // Use '@tensorflow/tfjs-node-gpu' to run with GPU.
 // Use '@tensorflow/tfjs' to run without the C++ binding.
 // Use '@tensorflow/tfjs-node' to run the C++ binding.
-const tf = require('@tensorflow/tfjs-node-gpu');
+const tf = require('@tensorflow/tfjs-node');
 const server = require('../lib-server/socketServer');
 let commandLineMode = false;
 
