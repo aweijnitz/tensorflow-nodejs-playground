@@ -1,5 +1,5 @@
 /**
- * Approximate a polynomial function of first degree (a line).
+ * Approximate a polynomial function.
  * This is basically an adaptation of the Coding Train video on the topic
  * https://www.youtube.com/watch?v=tIXDik5SGsI&index=7&list=PLRqwX-V7Uu6YIeVA3dNxbR9PYj4wV31oQ&t=0s
  *
@@ -20,7 +20,7 @@ const logData = data => {
   if (commandLineMode)
     console.log(data);
   else
-    server.broadCastData({ loss: data });
+    server.broadCastData({loss: data});
 };
 
 const logMsg = msg => {
@@ -31,12 +31,10 @@ const logMsg = msg => {
 };
 
 
-// The function we want to train the network to approximate. A polynomial function of degree 1
+// The function we want to train the network to approximate. A polynomial function of degree 3
 //
-let k = 5; // these are the "unknown" parameters we want to fit the model to
-let m = 3;
-const linearFunction = x => k * x + m;
-const functionToApproximate = linearFunction; // convenience to make it easy to switch functions without search and replace
+const polynomial = x => 9 * Math.pow(x, 3) + 8 * Math.pow(x, 2) + 7 * x + 6;
+const functionToApproximate = polynomial; // convenience to make it easy to switch functions without search and replace
 
 
 // Create training data in interval [-1,1]
@@ -60,17 +58,19 @@ const yTensor = tf.tensor1d(Yset, 'float32');
 // In short, we are telling Tensorflow, that these are the variables to be tuned during training.
 const a = tf.variable(tf.scalar(-10 + 10 * Math.random(), 'float32'));
 const b = tf.variable(tf.scalar(-10 + 10 * Math.random(), 'float32'));
+const c = tf.variable(tf.scalar(-10 + 10 * Math.random(), 'float32'));
+const d = tf.variable(tf.scalar(-10 + 10 * Math.random(), 'float32'));
 
 
 // Define the prediction function.
 // This is needed since we are explicitly defining the model here and not using a neural network.
 const predict = (inputTensor) => {
-  return inputTensor.mul(a).add(b); // Calculate output, given input and the current estimated parameters
+  return inputTensor.pow(3).mul(a).add(inputTensor.pow(2).mul(b)).add(inputTensor.mul(c)).add(d); // Calculate output, given input and the current estimated parameters
 };
 
 
 // Define the optimizer
-const learningRate = 0.2;
+const learningRate = 0.15;
 const optimizer = tf.train.sgd(learningRate); // SDG = Stochastic Gradient Descent
 
 // Define the loss function (Square Mean Error)
@@ -79,15 +79,14 @@ const loss = (pred, label) => pred.sub(label).square().mean();
 
 const startTraining = () => {
   
-  
   const epochs = 10000;
-  const threshold = 0.00001;
+  const threshold = 0.000001;
   for (let i = 0; i < epochs; i++) {
     optimizer.minimize(() => loss(predict(xTensor), yTensor));
     
-    if(i % 10 === 0)
+    if (i % 100 === 0)
       logData(loss(predict(xTensor), yTensor).dataSync());
-    if(loss(predict(xTensor), yTensor).dataSync() <= threshold) {
+    if (loss(predict(xTensor), yTensor).dataSync() <= threshold) {
       logMsg('Training completed at epoc: ' + i);
       break;
     }
@@ -100,10 +99,15 @@ if (commandLineMode) {
   logMsg('Allocated Tensors: ' + tf.memory().numTensors);
   logMsg('BEFORE a ' + a.dataSync());
   logMsg('BEFORE b ' + b.dataSync());
+  logMsg('BEFORE c ' + c.dataSync());
+  logMsg('BEFORE d ' + d.dataSync());
+
   tf.tidy(startTraining);
   logMsg('TRAINING COMPLETE ------- ');
   logMsg('AFTER a ' + a.dataSync());
   logMsg('AFTER b ' + b.dataSync());
+  logMsg('AFTER a ' + c.dataSync());
+  logMsg('AFTER b ' + d.dataSync());
   
   tf.tidy(() => {
     const input = 1.0;

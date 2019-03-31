@@ -9,6 +9,7 @@ A basic project scaffold to tryout [Tensorflow.js](https://js.tensorflow.org/) i
 __Make sure it works__
 
     node lib-tensorflow/basic-example.js
+    node lib-tensorflow/polynomial-fit.js
     
 
 ## Start Server
