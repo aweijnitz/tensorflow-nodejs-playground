@@ -32,6 +32,12 @@ SVM being a supervised learning algorithm requires clean, annotated data.
 
 ## Data Preparation
 
+### Data sets
+
+- [Caffe Model Zoo Intro](http://caffe.berkeleyvision.org/model_zoo.html)
+- [Caffe Model Zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo)
+- [GoogleAPI Open Images Dataset](https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&c=%2Fm%2F015p6) 
+
 ### Image Prep
 
 #### Base
@@ -102,9 +108,19 @@ https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css
 - [Wikipeida About NLG](https://en.wikipedia.org/wiki/Natural-language_generation)
 - [Blog: How do I Build an NLG System: Tools?](https://ehudreiter.com/2017/01/26/nlg-system-tools/)
 
-### word2vec - Text similarity
+### word2vec - Word similarity
 
 - [Blogpost: How to get started with word2vec](https://medium.freecodecamp.org/how-to-get-started-with-word2vec-and-then-how-to-make-it-work-d0a2fca9dad3)
 - [Most popular word2vec lib: __Gensim__](https://github.com/RaRe-Technologies/gensim/blob/develop/docs/notebooks/gensim%20Quick%20Start.ipynb)
 - [Presentation: Finding similar Github Projects](https://www.slideshare.net/vote/finding-similar-projects-in-github-using-word2vec-and-wmd)
+- []()
+
+#### Document similarity
+
+Either use gensims's doc2vec, or word2vec together with Word Mover Distance (WMD).
+There is also universal sentence encoder in Tensorflow.
+
+- [Word mover distance](https://github.com/RaRe-Technologies/gensim/blob/develop/docs/notebooks/WMD_tutorial.ipynb)
+- [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder/2)
+- [doc2vec tutorial](https://rare-technologies.com/doc2vec-tutorial/)
 - []()
