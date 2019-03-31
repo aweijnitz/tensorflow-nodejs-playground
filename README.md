@@ -22,6 +22,13 @@ which is same as
 
 A browser UI with links to run experiments can be found at [http://localhost:3000](http://localhost:3000)
 
+## Adding new examples
+
+### Node (server side) examples
+
+- Add new "experiment" in  `lib-tensorflow/`
+- (optional) Link a route to it in `routes/node-examples.js`
+- (optional) Add a link to the hompage `routes/index.js`
 
 ## Known Issues
 

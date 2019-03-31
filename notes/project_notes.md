@@ -1,7 +1,33 @@
 # Project Notes
 
+__The Big Idea__
+
+**Neural networks are general function approximators**, that is; IF the underlying data 
+can be described using a function over a set, a neural network can be trained to 
+approximate that (unknown) function. The training requires *labeled* training data.
+
+*Labeled* in this case means that the dataset has a correct classification, i.e. 
+"This image contains a human face.".
 
 ## Classifiers and Terminology
+
+__Basics__
+
+`model` - A function with parameters to optimize that describes the data. Once the parameters have been found, the model fits the data well and can be used to predict new values. The general case is a neural network with a given set of layers.
+
+`training` - Feeding a known dataset through the model, calculating the loss and then changing the parameters to minimize the loss (minimizing the difference between expected value and actual values, as given by the labels).
+
+`dataset` - A bunch of known values to fit the model to, using training.
+
+`labels` -  Metadata attached to the dataset, that describes the data. ("This image contains a car")
+
+`loss function` -  A function which returns the difference/distance/error between predicted value and the actual. It returns the value to optimize, for example Mean Square Error, for curve fitting (regression).
+
+`optimizer` -  A function used to minimize the loss function. It tries to adjust the parameters/weights in the network, so that it approximates the dataset.
+
+`learning rate` - Describes how how big steps/deltas the optimizer should work with when trying to minimize the loss. 
+
+
 
 __Predicting one out a given number of options__
 
@@ -101,6 +127,17 @@ https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
 
+
+### One-shot learning with Siamese Networks
+
+*Idea* - Mimic the ability for humans to recognize a person from his/her face, 
+after only having met once.
+
+*"Siamese networks are a special type of neural network architecture. 
+Instead of a model learning to classify its inputs, the neural networks learns 
+to differentiate between two inputs. It learns the similarity between them."*
+
+- [Hacker Noon Two Part Article about Siamese Networks](https://hackernoon.com/one-shot-learning-with-siamese-networks-in-pytorch-8ddaab10340e) 
 
 ### Natural Language Generation
 
